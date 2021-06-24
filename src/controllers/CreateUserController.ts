@@ -5,11 +5,11 @@ class CreateUserController {
     
     async handle(request: Request, response: Response) {
 
-        const { name, email, admin } = request.body; 
+        const { name, email, admin, password } = request.body; 
 
         const userService = new CreateUserService();
 
-        const user = await userService.execute({ name, email, admin });
+        const user = await userService.execute({ name, email, admin, password });
 
         return response.json(user);
     }
